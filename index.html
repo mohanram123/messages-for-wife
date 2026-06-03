@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #ffe4e6 0%, #fbcfe8 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        h1, h2, .script-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        /* Gentle fade-in animation for the poem lines */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger the animation delays for a storytelling effect */
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 2.0s; }
+        .delay-3 { animation-delay: 3.5s; }
+        .delay-4 { animation-delay: 5.0s; }
+        .delay-5 { animation-delay: 6.5s; }
+
+        /* Floating background hearts */
+        .heart {
+            position: fixed;
+            top: 100vh;
+            color: #f43f5e;
+            font-size: 1.5rem;
+            animation: floatUp linear infinite;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-120vh) rotate(360deg);
+            }
+        }
+        
+        /* Beating heart animation for the end */
+        .beat {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center py-12 px-4">
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's'; // Between 4s and 7s
+            heart.style.fontSize = Math.random() * 1.5 + 1 + 'rem'; // Random size
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 7000);
+        }
+        setInterval(createHeart, 500); // Add a new heart every 500ms
+    </script>
+
+    <div class="max-w-2xl w-full bg-white/60 backdrop-blur-sm shadow-2xl rounded-3xl p-8 md:p-12 text-center border border-white/50 relative overflow-hidden">
+        
+        <h1 class="text-5xl md:text-6xl text-rose-600 mb-6 fade-in-up delay-1">To My Beautiful Wife</h1>
+        
+        <div class="flex justify-center mb-8 fade-in-up delay-1">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3p3bzZhM2EwM3VvMzg0a2VuODFtbnpwYnNydGUzMndqMHFoNmV1dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yjvfyJN1regrQLDxGl/giphy.gif" alt="Romantic Hearts" class="rounded-xl shadow-md w-64 h-auto object-cover">
+        </div>
+
+        <div class="text-xl md:text-2xl text-gray-800 leading-loose space-y-8 mb-10">
+            
+            <div class="fade-in-up delay-2">
+                <p>I cherished the day we wandered the mall,</p>
+                <p>Laughter and wonder wrapped it all.</p>
+                <p>You lit a spark I can’t disguise,</p>
+                <p>A gentle glow within your eyes.</p>
+            </div>
+
+            <div class="flex justify-center my-8 fade-in-up delay-3">
+                <img src="love.jpeg" alt="Us" class="rounded-xl shadow-xl border-4 border-white w-64 md:w-80 rotate-2 hover:rotate-0 transition-transform duration-300">
+            </div> 
+
+            <div class="fade-in-up delay-3">
+                <p>Step by step, we’ll write our song,</p>
+                <p>Hand in hand, where hearts belong.</p>
+                <p>Word by word, our bond will grow,</p>
+                <p>Through every high, through every low.</p>
+            </div>
+
+            <div class="fade-in-up delay-4 font-semibold text-rose-700 italic mt-6">
+                <p>And know, my dear, it’s always true,</p>
+                <p>I’ll be there....only for you.</p>
+            </div>
+        </div>
+
+        <div class="fade-in-up delay-5 mt-12 border-t border-rose-200 pt-8">
+            <h2 class="text-4xl text-rose-600 mb-4">I Love You</h2>
+            <div class="text-5xl text-rose-600 beat">❤</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
