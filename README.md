@@ -1,1 +1,1 @@
-# messages-for-wife
+# A static websoite
